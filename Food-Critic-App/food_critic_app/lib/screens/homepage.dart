@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../widgets/add_shop_form.dart';
 import 'package:food_critic_app/widgets/shop_tile_widget.dart';
 
 import '../models/shop_model.dart';
@@ -11,7 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<Shop> shopList = [];
+  final List<Shop> _shopList = [];
 
   void _addShop(
     String shopName,
@@ -25,8 +27,21 @@ class _HomePageState extends State<HomePage> {
       location: location,
     );
     setState(() {
-      shopList.add(newShop);
+      _shopList.add(newShop);
     });
+  }
+
+  void _showModal() {
+    showModalBottomSheet(
+      // isScrollControlled: true,
+      context: context,
+      builder: (_) {
+        return GestureDetector(
+          onTap: () {},
+          child: AddShopForm(addShop: _addShop),
+        );
+      },
+    );
   }
 
   @override
@@ -36,12 +51,19 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Food Critic App'),
         actions: [
           IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.add),
+            onPressed: _showModal,
+            icon: const Icon(Icons.add),
           )
         ],
       ),
-      body: ShopTileWidget(addShop: _addShop),
+      body: Column(
+        children: [
+          Center(
+            child: Text('hello'),
+          ),
+          ShopTileWidget(shopList: _shopList),
+        ],
+      ),
     );
   }
 }

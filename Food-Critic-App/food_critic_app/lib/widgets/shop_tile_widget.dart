@@ -5,31 +5,33 @@ import '../models/shop_model.dart';
 class ShopTileWidget extends StatelessWidget {
   ShopTileWidget({
     Key? key,
-    required this.addShop,
+    required this.shopList,
   }) : super(key: key);
 
-  final List<Shop> addShop;
+  final List<Shop> shopList;
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: addShop.length,
-      itemBuilder: (context, index) {
-        return ListTile(
-          leading: const CircleAvatar(
-            child: ColoredBox(
-              color: Colors.black,
+    return Expanded(
+      child: ListView.builder(
+        itemCount: shopList.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            leading: const CircleAvatar(
+              child: ColoredBox(
+                color: Colors.black,
+              ),
             ),
-          ),
-          subtitle: Column(
-            children: [
-              Text('Shop Title'),
-              Text('Shop Description'),
-            ],
-          ),
-          trailing: Icon(Icons.star),
-        );
-      },
+            subtitle: Column(
+              children: [
+                Text('Shop Title'),
+                Text('Shop Description'),
+              ],
+            ),
+            trailing: Icon(Icons.star),
+          );
+        },
+      ),
     );
   }
 }

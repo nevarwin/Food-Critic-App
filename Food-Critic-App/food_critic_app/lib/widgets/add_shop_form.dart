@@ -1,9 +1,12 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 class AddShopForm extends StatefulWidget {
-  const AddShopForm({Key? key}) : super(key: key);
+  const AddShopForm({
+    Key? key,
+    required this.addShop,
+  }) : super(key: key);
+
+  final Function addShop;
 
   @override
   State<AddShopForm> createState() => _AddShopFormState();
@@ -30,6 +33,12 @@ class _AddShopFormState extends State<AddShopForm> {
     if (tCtrl.isEmpty && descCtrl.isEmpty && locCtrl.isEmpty) {
       return;
     }
+    widget.addShop(
+      tCtrl,
+      descCtrl,
+      locCtrl,
+    );
+    Navigator.of(context).pop();
   }
 
   @override
