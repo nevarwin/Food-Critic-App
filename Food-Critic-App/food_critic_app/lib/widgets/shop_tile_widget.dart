@@ -16,19 +16,31 @@ class ShopTileWidget extends StatelessWidget {
       child: ListView.builder(
         itemCount: shopList.length,
         itemBuilder: (context, index) {
-          return ListTile(
-            leading: const CircleAvatar(
-              child: ColoredBox(
-                color: Colors.black,
+          return InkWell(
+            onTap: () {},
+            child: Card(
+              elevation: 5.0,
+              color: Colors.white70,
+              child: ListTile(
+                leading: const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: CircleAvatar(
+                    child: ColoredBox(
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                subtitle: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(shopList[index].name),
+                    Text(shopList[index].description),
+                    Text(shopList[index].location),
+                  ],
+                ),
+                trailing: Icon(Icons.star),
               ),
             ),
-            subtitle: Column(
-              children: [
-                Text('Shop Title'),
-                Text('Shop Description'),
-              ],
-            ),
-            trailing: Icon(Icons.star),
           );
         },
       ),

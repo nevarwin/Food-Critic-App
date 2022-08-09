@@ -58,9 +58,6 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
-          Center(
-            child: Text('hello'),
-          ),
           ShopTileWidget(shopList: _shopList),
         ],
       ),
