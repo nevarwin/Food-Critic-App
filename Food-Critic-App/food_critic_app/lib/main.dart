@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:food_critic_app/screens/homepage.dart';
+import 'package:food_critic_app/widgets/add_shop_form.dart';
+import 'package:food_critic_app/widgets/shop_description.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,18 +33,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomePage(),
+        ShopDescription.routeName: (context) => const ShopDescription(),
+        // AddShopForm.routeName: (context) => const AddShopForm(),
+      },
     );
   }
 }

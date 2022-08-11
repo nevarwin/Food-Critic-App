@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_critic_app/widgets/shop_description.dart';
 
 import '../models/shop_model.dart';
 
@@ -10,6 +11,13 @@ class ShopTileWidget extends StatelessWidget {
 
   final List<Shop> shopList;
 
+  void _shopDescription(BuildContext context) {
+    Navigator.of(context).pushNamed(
+      ShopDescription.routeName,
+      arguments: shopList,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -17,7 +25,7 @@ class ShopTileWidget extends StatelessWidget {
         itemCount: shopList.length,
         itemBuilder: (context, index) {
           return InkWell(
-            onTap: () {},
+            onTap: () => _shopDescription(context),
             child: Card(
               elevation: 5.0,
               color: Colors.white70,

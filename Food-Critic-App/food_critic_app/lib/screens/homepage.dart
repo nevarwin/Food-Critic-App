@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Food Critic App'),
+        title: const Text('Shop App'),
         actions: [
           IconButton(
             onPressed: _showModal,
