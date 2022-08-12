@@ -4,17 +4,20 @@ import 'package:food_critic_app/widgets/shop_description.dart';
 import '../models/shop_model.dart';
 
 class ShopTileWidget extends StatelessWidget {
-  ShopTileWidget({
+  const ShopTileWidget({
     Key? key,
     required this.shopList,
   }) : super(key: key);
 
   final List<Shop> shopList;
 
-  void _shopDescription(BuildContext context) {
+  void _shopDescription(
+    BuildContext context,
+    int index,
+  ) {
     Navigator.of(context).pushNamed(
       ShopDescription.routeName,
-      arguments: shopList,
+      arguments: shopList[index],
     );
   }
 
@@ -25,7 +28,10 @@ class ShopTileWidget extends StatelessWidget {
         itemCount: shopList.length,
         itemBuilder: (context, index) {
           return InkWell(
-            onTap: () => _shopDescription(context),
+            onTap: () => _shopDescription(
+              context,
+              index,
+            ),
             child: Card(
               elevation: 5.0,
               color: Colors.white70,
