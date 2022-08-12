@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:food_critic_app/screens/homepage.dart';
+import 'package:food_critic_app/widgets/add_food_form.dart';
 import 'package:food_critic_app/widgets/add_shop_form.dart';
 import 'package:food_critic_app/widgets/shop_description.dart';
 
@@ -39,7 +40,8 @@ class _MyHomePageState extends State<MyHomePage> {
       initialRoute: '/',
       routes: {
         '/': (context) => const HomePage(),
-        ShopDescription.routeName: (context) => const ShopDescription(),
+        ShopDescription.routeName: (context) => ShopDescription(),
+
         // AddShopForm.routeName: (context) => const AddShopForm(),
       },
     );
