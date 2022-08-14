@@ -36,7 +36,7 @@ class _AddFoodFormState extends State<AddFoodForm> {
     final descCtrl = descriptionController.text;
     final ingreCtrl = ingredientsController.text;
     final servCtrl = servingController.text;
-    final priceCtrl = priceController.value;
+    final priceCtrl = int.parse(priceController.text);
 
     if (tCtrl.isEmpty &&
         descCtrl.isEmpty &&
@@ -57,48 +57,54 @@ class _AddFoodFormState extends State<AddFoodForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TextField(
-          decoration: InputDecoration(
-            labelText: 'Name',
-          ),
-          keyboardType: TextInputType.text,
-          controller: nameController,
+    return Card(
+      elevation: 5,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Name',
+              ),
+              keyboardType: TextInputType.text,
+              controller: nameController,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Description',
+              ),
+              keyboardType: TextInputType.text,
+              controller: descriptionController,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Ingredients',
+              ),
+              keyboardType: TextInputType.text,
+              controller: ingredientsController,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Servings',
+              ),
+              keyboardType: TextInputType.text,
+              controller: servingController,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Price',
+              ),
+              keyboardType: TextInputType.number,
+              controller: priceController,
+            ),
+            TextButton(
+              onPressed: _submitFood,
+              child: Text('Submit'),
+            ),
+          ],
         ),
-        TextField(
-          decoration: InputDecoration(
-            labelText: 'Description',
-          ),
-          keyboardType: TextInputType.text,
-          controller: descriptionController,
-        ),
-        TextField(
-          decoration: InputDecoration(
-            labelText: 'Ingredients',
-          ),
-          keyboardType: TextInputType.text,
-          controller: ingredientsController,
-        ),
-        TextField(
-          decoration: InputDecoration(
-            labelText: 'Servings',
-          ),
-          keyboardType: TextInputType.text,
-          controller: servingController,
-        ),
-        TextField(
-          decoration: InputDecoration(
-            labelText: 'Price',
-          ),
-          keyboardType: TextInputType.number,
-          controller: priceController,
-        ),
-        TextButton(
-          onPressed: _submitFood,
-          child: Text('Submit'),
-        ),
-      ],
+      ),
     );
   }
 }

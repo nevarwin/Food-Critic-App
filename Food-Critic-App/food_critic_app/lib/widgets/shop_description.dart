@@ -63,9 +63,11 @@ class _ShopDescriptionState extends State<ShopDescription> {
 
     void _showModal() {
       showModalBottomSheet(
+        isScrollControlled: true,
         context: context,
         builder: (_) {
           return GestureDetector(
+            behavior: HitTestBehavior.opaque,
             onTap: () {},
             child: AddFoodForm(addFood: _addFood),
           );
