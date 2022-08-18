@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tabbar/tab-screen.dart';
+import 'package:flutter_tabbar/top_tab_screen.dart';
 
 void main() {
   runApp(const MyApp());
