@@ -8,6 +8,8 @@ import 'package:flutter_tabbar/third_tab.dart';
 class TabScreen extends StatefulWidget {
   const TabScreen({Key? key}) : super(key: key);
 
+  static const routeName = '/topTabScreen';
+
   @override
   State<TabScreen> createState() => _TabScreenState();
 }
@@ -84,6 +86,10 @@ class _TabScreenState extends State<TabScreen> with TickerProviderStateMixin {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             _controller.animateTo(_selectedIndex += 1);
+            print(_selectedIndex);
+            if (_selectedIndex > 4) {
+              _controller.animateTo(_selectedIndex = 0);
+            }
           },
           child: const Icon(Icons.arrow_right),
         ),

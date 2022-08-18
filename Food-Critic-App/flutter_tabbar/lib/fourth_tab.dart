@@ -9,7 +9,7 @@ class FourthTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Icon(Icons.west),
+      child: Icon(Icons.analytics),
     );
   }
 }

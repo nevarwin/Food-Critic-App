@@ -8,8 +8,13 @@ class FirstTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Icon(Icons.north),
+    return Center(
+      child: Container(
+        color: Colors.yellow,
+        height: 100,
+        width: 100,
+        child: const Icon(Icons.home),
+      ),
     );
   }
 }

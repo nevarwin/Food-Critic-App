@@ -9,7 +9,7 @@ class ThirdTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Icon(Icons.south),
+      child: Icon(Icons.accessibility),
     );
   }
 }

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import './select_tab.dart';
+import 'package:flutter_tabbar/bottom_tab_screen.dart';
 import 'package:flutter_tabbar/top_tab_screen.dart';
 
 void main() {
@@ -18,7 +21,9 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const TabScreen(),
+        '/': (context) => const SelectTab(),
+        TabScreen.routeName: (context) => const TabScreen(),
+        BottomTabScreen.routeName: (context) => const BottomTabScreen(),
       },
     );
   }
