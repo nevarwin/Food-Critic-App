@@ -47,22 +47,20 @@ class _TabScreenState extends State<TabScreen> with TickerProviderStateMixin {
                   controller: _controller,
                   indicator: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
-                    color: Colors.greenAccent,
+                    color: Colors.deepOrange,
                   ),
-                  indicatorColor: Colors.blue,
-                  unselectedLabelColor: Colors.white,
-                  tabs: const [
+                  tabs: const <Widget>[
                     Tab(
-                      icon: Icon(Icons.north),
+                      icon: Icon(Icons.home),
                     ),
                     Tab(
-                      icon: Icon(Icons.east),
+                      icon: Icon(Icons.settings),
                     ),
                     Tab(
-                      icon: Icon(Icons.south),
+                      icon: Icon(Icons.accessibility),
                     ),
                     Tab(
-                      icon: Icon(Icons.west),
+                      icon: Icon(Icons.analytics),
                     ),
                     Tab(
                       icon: Icon(Icons.phishing),

@@ -1,6 +1,3 @@
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_tabbar/fifth_tab.dart';
 import 'package:flutter_tabbar/first_tab.dart';
@@ -19,6 +16,7 @@ class BottomTabScreen extends StatefulWidget {
 
 class _BottomTabScreenState extends State<BottomTabScreen> {
   int _currentIndex = 0;
+
   final List<Widget> _pages = [
     const FirstTab(),
     const SecondTab(),
