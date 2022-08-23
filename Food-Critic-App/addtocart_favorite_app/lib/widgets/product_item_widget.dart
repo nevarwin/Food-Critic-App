@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 class ProductItemWidget extends StatelessWidget {
   const ProductItemWidget({
     Key? key,
+    required this.id,
     required this.title,
     required this.price,
   }) : super(key: key);
 
+  final String id;
   final String title;
   final double price;
 
@@ -19,7 +21,7 @@ class ProductItemWidget extends StatelessWidget {
         onTap: () {
           Navigator.of(context).pushNamed(
             ProductDetailScreen.routeName,
-            arguments: title,
+            arguments: id,
           );
         },
         child: GridTile(

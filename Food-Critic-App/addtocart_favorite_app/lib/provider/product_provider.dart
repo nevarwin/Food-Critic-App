@@ -20,6 +20,6 @@ class ProductProvider with ChangeNotifier {
   }
 
   Product findById(String id) {
-    return _productList.firstWhere((element) => element.id == id);
+    return _productList.firstWhere((product) => product.id == id);
   }
 }
