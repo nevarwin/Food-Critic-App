@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/product_model.dart';
+import 'product_model.dart';
 
 class ProductProvider with ChangeNotifier {
   final List<Product> _productList = [

@@ -1,47 +1,45 @@
-import 'package:addtocart_favorite_app/screens/product_details_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../screens/product_details_screen.dart';
+import '../provider/product_model.dart';
 
 class ProductItemWidget extends StatelessWidget {
-  const ProductItemWidget({
-    Key? key,
-    required this.id,
-    required this.title,
-    required this.price,
-  }) : super(key: key);
-
-  final String id;
-  final String title;
-  final double price;
+  const ProductItemWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final products = Provider.of<Product>(context);
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: GestureDetector(
         onTap: () {
           Navigator.of(context).pushNamed(
             ProductDetailScreen.routeName,
-            arguments: id,
+            arguments: products.id,
           );
         },
         child: GridTile(
           header: Container(
             color: Colors.black12,
             child: Text(
-              title,
+              products.title,
               textAlign: TextAlign.center,
             ),
           ),
           footer: GridTileBar(
             backgroundColor: Colors.black87,
             leading: IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.favorite,
+              onPressed: () {
+                products.toggleFavorite();
+              },
+              icon: Icon(
+                products.isFavorite ? Icons.favorite : Icons.favorite_border,
               ),
             ),
             title: Text(
-              '$price',
+              '${products.price}',
               textAlign: TextAlign.center,
             ),
             trailing: IconButton(
